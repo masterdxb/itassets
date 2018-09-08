@@ -49,7 +49,7 @@
                           <div class="input-group-addon">
                             <i class="fa fa-calendar"></i>
                           </div>
-                            {!! Form::text('purchase_date', null, array('placeholder' => 'Purchase Date', 'class' => 'form-control', 'id' => 'datepicker')) !!}
+                            {!! Form::text('purchase_date', null, array('placeholder' => 'Purchase Date', 'class' => 'form-control', 'id' => 'datepicker', 'readonly' => true)) !!}
                         </div>
                         @if ($errors->has('purchase_date'))
                             {!! $errors->first('purchase_date', '<small class=error>:message</small>') !!}

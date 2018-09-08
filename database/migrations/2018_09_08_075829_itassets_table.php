@@ -19,7 +19,7 @@ class ItassetsTable extends Migration
             $table->string('name', 500)->nullable();
             $table->text('description')->nullable();
             $table->string('type', 100)->nullable();
-            $table->datetime('purchase_date')->nullable();
+            $table->date('purchase_date')->nullable();
             $table->string('status', 50)->nullable();
             $table->softDeletes();
             $table->timestamps();
