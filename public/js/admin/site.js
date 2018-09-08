@@ -31,35 +31,35 @@ $(function(){
 
 $(document).ready(function(){
 
-    $('#table_grid').DataTable({
-    responsive: {
-        details: {
-            renderer: function ( api, rowIdx ) {
-                // Select hidden columns for the given row
-                var data = api.cells( rowIdx, ':hidden' ).eq(0).map( function ( cell ) {
-                    var header = $( api.column( cell.column ).header() );
+//     $('#table_grid').DataTable({
+//     responsive: {
+//         details: {
+//             renderer: function ( api, rowIdx ) {
+//                 // Select hidden columns for the given row
+//                 var data = api.cells( rowIdx, ':hidden' ).eq(0).map( function ( cell ) {
+//                     var header = $( api.column( cell.column ).header() );
 
-                    return '<tr>'+
-                            '<td>'+
-                                header.text()+':'+
-                            '</td> '+
-                            '<td>'+
-                                api.cell( cell ).data()+
-                            '</td>'+
-                        '</tr>';
-                } ).toArray().join('');
+//                     return '<tr>'+
+//                             '<td>'+
+//                                 header.text()+':'+
+//                             '</td> '+
+//                             '<td>'+
+//                                 api.cell( cell ).data()+
+//                             '</td>'+
+//                         '</tr>';
+//                 } ).toArray().join('');
 
-                return data ?
-                    $('<table/>').append( data ) :
-                    false;
-            }
-        }
-    },
-    "bPaginate": false,
-    "bFilter": false,
-    "bInfo": false,
-    "aaSorting": []
-});
+//                 return data ?
+//                     $('<table/>').append( data ) :
+//                     false;
+//             }
+//         }
+//     },
+//     "bPaginate": false,
+//     "bFilter": false,
+//     "bInfo": false,
+//     "aaSorting": []
+// });
 
     $('.select2').select2();
 
