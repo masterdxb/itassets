@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use Laravel\Passport\Passport;
+// use Laravel\Passport\Passport;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -28,17 +28,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Passport::routes();
+        // Passport::routes();
 
-        Passport::tokensExpireIn(Carbon::now()->addDays(1));
+        // Passport::tokensExpireIn(Carbon::now()->addDays(1));
 
-        Passport::refreshTokensExpireIn(Carbon::now()->addDays(30));
+        // Passport::refreshTokensExpireIn(Carbon::now()->addDays(30));
 
-        Passport::enableImplicitGrant();
-
-        if (Schema::hasTable('scopes')) {
-            Passport::tokensCan(\App\AuthScope::pluck('name', 'slug')->toArray());
-        }
+        // Passport::enableImplicitGrant();
 
     }
 }
