@@ -112,7 +112,7 @@ return [
         [
             'text' => 'IT Assets',
             'url'  => 'admin/itassets',
-            'icon' => 'user',
+            'icon' => 'object-ungroup',
         ],
         [
             'text' => 'Users',
@@ -122,12 +122,12 @@ return [
         [
             'text' => 'Roles',
             'url'  => 'admin/roles',
-            'icon' => 'user',
+            'icon' => 'user-plus',
         ],
         [
             'text' => 'Permissions',
             'url'  => 'admin/permissions',
-            'icon' => 'user',
+            'icon' => 'ban',
         ],
         // 'ACCOUNT SETTINGS',
         // [
