@@ -1,0 +1,72 @@
+.alert{
+	margin-bottom: 0;
+	border-radius: 0;
+    text-align: center;
+}
+
+.alert a{text-decoration: none;}
+small.error{
+    display: block;
+    background: #ce0c0c;
+    color: white;
+    padding: 4px;
+    font-size: 12px;
+    text-align: left;
+}
+.generate-key{
+	cursor: pointer;
+}
+.disabled-generate-key{
+	cursor: not-allowed;
+}
+
+.glyphicon.spinning {
+    animation: spin 1s infinite linear;
+    -webkit-animation: spin2 1s infinite linear;
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg); }
+    to { transform: scale(1) rotate(360deg); }
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+
+.glyphicon-refresh.spinning { transform-origin: 50% 58%; }
+.generate-spinner{
+    position: absolute;
+    right: 30px;
+    top: 9px;
+}
+
+.chosen-container-multi .chosen-choices{
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+}
+
+.content-header > h3 {
+    background-color: #3c8dbc;
+    padding: 5px;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 21px;
+    text-shadow: 1px 1px 1px #2e2e2e;
+}
+.delete-form{
+    margin: 0;
+    width: auto;
+    display: inline;
+}
+.icon {
+    padding: 0!important;
+}
+.glyphicon {
+    padding: 0 !important;
+}
+.remove {
+    color: red;
+}
+.callout-danger{text-align: center;}
