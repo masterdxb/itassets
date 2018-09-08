@@ -24,7 +24,7 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::get('/home', 'HomeController@index')->name('home');
 	Route::get('/', 'HomeController@index')->name('home');
 	Route::group(['middleware' => ['role:admin|staff']], function(){
-		Route::resource('scopes', 'ScopeController', ['as' => 'admin']);
+		Route::resource('itassets', 'ITAssetController', ['as' => 'admin']);
 		Route::resource('users', 'UserController', ['as' => 'admin']);
 		Route::resource('clients', 'OauthClientController', ['as' => 'admin']);
 		Route::resource('roles', 'RoleController', ['as' => 'admin']);

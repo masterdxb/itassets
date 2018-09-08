@@ -110,8 +110,8 @@ return [
     'menu' => [
         'MAIN NAVIGATION',
         [
-            'text' => 'Scopes',
-            'url'  => 'admin/scopes',
+            'text' => 'IT Assets',
+            'url'  => 'admin/itassets',
             'icon' => 'user',
         ],
         [

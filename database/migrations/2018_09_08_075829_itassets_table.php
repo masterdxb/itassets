@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateScopesTable extends Migration
+class ItassetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateScopesTable extends Migration
      */
     public function up()
     {
-        Schema::create('scopes', function (Blueprint $table) {
+        Schema::create('itassets', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('slug', 250);
-            $table->string('name', 250)->nullable();
+            $table->integer('owner_id');
+            $table->string('name', 500)->nullable();
             $table->text('description')->nullable();
+            $table->string('type', 100)->nullable();
+            $table->datetime('purchase_date')->nullable();
             $table->string('status', 50)->nullable();
             $table->softDeletes();
             $table->timestamps();
@@ -31,6 +33,6 @@ class CreateScopesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('scopes');
+        Schema::drop('itassets');
     }
 }

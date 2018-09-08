@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class AuthScope extends Model
+class ITAsset extends Model
 {
    use SoftDeletes;
   /**
@@ -15,5 +15,10 @@ class AuthScope extends Model
    */
     protected $dates = ['deleted_at'];
 
-    protected $table = "scopes";
+    protected $table = "itassets";
+
+    public function user()
+    {
+    	return $this->belongsTo('App\User', 'owner_id', 'id');
+    }
 }

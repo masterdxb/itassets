@@ -17,19 +17,17 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/Ionicons/css/ionicons.min.css') }}">
 
-    @if(config('adminlte.plugins.select2'))
         <!-- Select2 -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css">
-    @endif
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css">
 
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/AdminLTE.min.css') }}">
-
-    @if(config('adminlte.plugins.datatables'))
         <!-- DataTables -->
         <link rel="stylesheet" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-    @endif
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('css/admin/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin/datepicker.css') }}" rel="stylesheet">
 
     @yield('adminlte_css')
 
@@ -50,16 +48,13 @@
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.min.js') }}"></script>
 <script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ URL::asset('js/admin/site.js') }}"></script>
+<script src="{{ URL::asset('js/admin/datepicker.js') }}"></script>
 
-@if(config('adminlte.plugins.select2'))
     <!-- Select2 -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-@endif
-
-@if(config('adminlte.plugins.datatables'))
     <!-- DataTables -->
     <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-@endif
 
 
 @yield('adminlte_js')

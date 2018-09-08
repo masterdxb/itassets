@@ -119,6 +119,8 @@
 
                 @yield('content')
 
+                <div class='clearfix'></div>
+
             </section>
             <!-- /.content -->
             @if(config('adminlte.layout') == 'top-nav')
