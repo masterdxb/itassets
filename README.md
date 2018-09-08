@@ -16,7 +16,7 @@ Simple laravel application with following functionality
 - IT Assets crud
 
 
-## Installation Sets
+## Installation Steps
 
 1) Take clone of this repo
 2) Run command. update composer 
