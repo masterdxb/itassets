@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'Authentication API',
+    'title' => 'IT Assets',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>ITG Authentication</b>',
+    'logo' => '<b>ITAssests</b>',
 
-    'logo_mini' => '<b>ITG</b>AUTH',
+    'logo_mini' => '<b>IT</b>Assets',
 
     /*
     |--------------------------------------------------------------------------
