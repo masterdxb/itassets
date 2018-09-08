@@ -70,3 +70,5 @@ small.error{
     color: red;
 }
 .callout-danger{text-align: center;}
+
+.radio-inline{padding-left: 0px !important;}
