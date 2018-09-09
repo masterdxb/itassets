@@ -11,13 +11,17 @@ use Response;
 class ITAssetController extends Controller
 {
 
+	private $ITAsset = "";
+	private $user = "";
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(ITAsset $iITAsset,User $user)
     {
+		$this->ITAsset = $iITAsset;
+		$this->user = $user;
         $this->middleware('auth');
     }
 
@@ -40,8 +44,8 @@ class ITAssetController extends Controller
      */
     public function create()
     {
-        $users = User::pluck('name', 'id')->toArray();
-        $types = ['Laptop' => 'Laptop', 'Mobile' => 'Mobile', 'PC' => 'PC', 'PDA' => 'PDA', 'Keyboard' => 'Keyboard'];
+		$users = $this->user->getUsernameAndID();
+		$types = $this->ITAsset->getTypes();
         return view('admin.itassets.create', compact('users', 'types'));
     }
 
@@ -53,23 +57,14 @@ class ITAssetController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'owner_id' => 'required',
-            'name' => 'required|max:255',
-            'description' => 'required',
-            'type' => 'required|max:100',
-            'purchase_date' => 'required',
-            'status' => 'required|max:50'
-        ]);
-
-        $itasset = new ITAsset();
-        $itasset->owner_id = $request->get('owner_id');
-        $itasset->name = $request->get('name');
-        $itasset->description = $request->get('description');
-        $itasset->type = $request->get('type');
-        $itasset->purchase_date = $request->get('purchase_date');
-        $itasset->status = $request->get('status');
-        $itasset->save();
+		$validtor = $this->itasset->validate($request);
+		if($validtor){
+			$errors = $validtor->messages();
+			$users = $this->user->getUsernameAndID();
+			$types = $this->ITAsset->getTypes();
+			return view('admin.itassets.create', compact('errors','users','types'));
+		}
+        $this->ITAsset->saveData($request);
 
         session()->flash('message', 'ITAsset created successfully.');
         return redirect()->route('admin.itassets.index');
@@ -83,7 +78,7 @@ class ITAssetController extends Controller
      */
     public function show($id)
     {
-        $itasset = ITAsset::with('user')->where('id', $id)->first();
+        $itasset = $this->ITAsset->getRow($id);
         return view('admin.itassets.show', compact('itasset'));
     }
 
@@ -95,9 +90,9 @@ class ITAssetController extends Controller
      */
     public function edit($id)
     {
-        $itasset = ITAsset::find($id);
-        $users = User::pluck('name', 'id')->toArray();
-        $types = ['Laptop' => 'Laptop', 'Mobile' => 'Mobile', 'PC' => 'PC', 'PDA' => 'PDA', 'Keyboard' => 'Keyboard'];
+        $itasset = $this->ITAsset->getRow($id);
+		$users = $this->user->getUsernameAndID();
+		$types = $this->ITAsset->getTypes();
         return view('admin.itassets.edit',compact('itasset', 'users', 'types'));
     }
 
@@ -110,24 +105,14 @@ class ITAssetController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'owner_id' => 'required',
-            'name' => 'required|max:255',
-            'description' => 'required',
-            'type' => 'required|max:100',
-            'purchase_date' => 'required',
-            'status' => 'required|max:50'
-        ]);
-
-        $itasset = ITAsset::find($id);
-        $itasset->owner_id = $request->get('owner_id');
-        $itasset->name = $request->get('name');
-        $itasset->description = $request->get('description');
-        $itasset->type = $request->get('type');
-        $itasset->purchase_date = $request->get('purchase_date');
-        $itasset->status = $request->get('status');
-        $itasset->save();
-
+		$validtor = $this->ITAsset->validate($request);
+		if($validtor){
+			$errors = $validtor->messages();
+			$users = $this->user->getUsernameAndID();
+			$types = $this->ITAsset->getTypes();
+			return view('admin.itassets.create', compact('errors','users','types'));
+		}
+		$this->ITAsset->updateData($request,$id);
         session()->flash('message', 'ITAsset updated successfully.');
         return redirect()->route('admin.itassets.index');
     }
@@ -140,8 +125,7 @@ class ITAssetController extends Controller
      */
     public function destroy($id)
     {
-        ITAsset::find($id)->delete(); // soft deleting scopes
-
+        $this->ITAsset->deleteRow($id);
         session()->flash('message', 'ITAsset deleted successfully.');
         return redirect()->route('admin.itassets.index');
     }
