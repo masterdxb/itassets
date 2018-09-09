@@ -8,8 +8,8 @@ use App\Http\Requests;
 use Response;
 use \Config;
 use Session;
-use App\Role;
-use App\Permission;
+use App\Models\Role;
+use App\Models\Permission;
 use \DB;
 
 class RoleController extends Controller

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -19,6 +19,7 @@ class ITAsset extends Model
 
     public function user()
     {
-    	return $this->belongsTo('App\User', 'owner_id', 'id');
+    	return $this->belongsTo('App\Models\User', 'owner_id', 'id');
     }
+	
 }

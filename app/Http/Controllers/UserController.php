@@ -6,8 +6,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\User;
-use App\Role;
+use App\Models\User;
+use App\Models\Role;
 use Response;
 use \Config;
 use Auth;

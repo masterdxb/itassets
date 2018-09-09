@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\ITAsset;
-use App\User;
+use App\Models\ITAsset;
+use App\Models\User;
 use Validator;
 use Response;
 
